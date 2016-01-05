@@ -8,14 +8,13 @@ class LinkedList{
 	get length(){return this._length;}
 	
 	insert(val){
-		//let item = {value: val, next: null};
-		let item = new LinkedListNode(val);
+		let node = new LinkedListNode(val);
 		let current;
-        if(this.head === null) this.head = item;
+        if(this.head === null) this.head = node;
 		else{
             current = this.head;
             while(current.next != null) current = current.next;
-            current.next = item;  
+            current.next = node;  
         }
 		this._length++;
 	}
@@ -23,22 +22,21 @@ class LinkedList{
 	insertAt(index, val){
 		if(index >= this._length) return this.insert(val);
 		
-		//let item = {value: val, next: null}
-		let item = new LinkedListNode(val)
+		let node = new LinkedListNode(val)
 			,current = this.head
 			,i = 0
 			,temp;
 		
 		if(index === 0){
-			item.next = current;
-			this.head = item;
+			node.next = current;
+			this.head = node;
 		}
 		else{
 			while(current.next != null){
 				if(i === index - 1){
 					temp = current.next;
-					current.next = item;
-					item.next = temp;
+					current.next = node;
+					node.next = temp;
 				}
 				current = current.next;
 				i++;
