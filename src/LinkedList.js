@@ -1,8 +1,12 @@
 class LinkedList{
 	
-	constructor(){
+	constructor(arr = []){
+		if(!Array.isArray(arr)) throw new Error('Invalid argument, must be an array');
+		
 		this.head = null;
 		this._length = 0;
+		
+		arr.forEach(x => this.insert(x));
 	}
 	
 	get length(){return this._length;}
